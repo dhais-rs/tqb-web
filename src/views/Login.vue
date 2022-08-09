@@ -12,42 +12,28 @@
             <el-card :body-style="{ background: 'rgba(0,0,0,0.15)' }">
                 <h1>星途游乐后台管理系统</h1>
                 <transition name="el-fade-in-linear">
-                    <el-form
-                        :model="form"
-                        :rules="rules"
-                        v-show="!success"
-                        class="ve_form"
-                        ref="ref_form"
-                        :inline="false"
-                        @keyup.enter="onSubmit"
-                    >
+                    <el-form :model="form" :rules="rules" v-show="!success" class="ve_form" ref="ref_form"
+                        :inline="false" @keyup.enter="onSubmit">
                         <el-form-item prop="userName">
-                            <el-input
-                                v-model.trim="userName"
-                                placeholder="用户名"
-                            >
+                            <el-input v-model.trim="userName" placeholder="用户名">
                                 <template #prepend>
-                                    <el-icon :size="20"><Avatar /></el-icon>
+                                    <el-icon :size="20">
+                                        <Avatar />
+                                    </el-icon>
                                 </template>
                             </el-input>
                         </el-form-item>
                         <el-form-item prop="password">
-                            <el-input
-                                v-model.trim="password"
-                                show-password
-                                placeholder="密码"
-                            >
+                            <el-input v-model.trim="password" show-password placeholder="密码">
                                 <template #prepend>
-                                    <el-icon :size="20"><Key /></el-icon>
+                                    <el-icon :size="20">
+                                        <Key />
+                                    </el-icon>
                                 </template>
                             </el-input>
                         </el-form-item>
                         <el-form-item>
-                            <el-button
-                                class="ve_submit"
-                                type="primary"
-                                @click="onSubmit"
-                            >
+                            <el-button class="ve_submit" type="primary" @click="onSubmit">
                                 登录
                             </el-button>
                         </el-form-item>
@@ -59,7 +45,7 @@
 </template>
 
 <script setup>
-import { SET_ROLE, SET_TOKEN, SET_UNAME } from "@/store/modules/app/type";
+import { SET_TOKEN, SET_UNAME } from "@/store/modules/app/type";
 import Common from "@/components/Common";
 import { ref, reactive, toRefs } from "vue";
 import { useStore } from "vuex";
@@ -92,7 +78,10 @@ const onSubmit = () => {
                 console.info("iiiii", data.row.token);
                 store.dispatch(`app/${SET_TOKEN}`, data.row.token);
                 store.dispatch(`app/${SET_UNAME}`, data.row.nickName);
-                store.dispatch(`app/${SET_ROLE}`, data.row.userLevel);
+                // store.dispatch(`app/${SET_ROLE}`, data.row.userLevel);
+                // localStorage.setItem('token', data.row.token);
+                // localStorage.setItem('uname', data.row.nickName);
+                // localStorage.setItem('role', data.row.userLevel);
                 success.value = true;
                 router.push({ name: "AppMain" });
             }
@@ -114,16 +103,19 @@ const onSubmit = () => {
     transition: all 1s;
     min-height: 273px;
     text-align: center;
+
     h1 {
         font-size: 24px;
         transition: all 1s;
         font-weight: bold;
         margin-bottom: 36px;
     }
+
     .ve_form {
         .ve_submit {
             width: 100%;
         }
+
         :deep(.el-input-group__prepend) {
             padding: 0 10px;
         }

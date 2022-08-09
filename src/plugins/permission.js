@@ -6,16 +6,16 @@
  * @Description: In User Settings Edit
  * @FilePath: \vue3-element-admin\src\plugins\permission.js
  */
-import { SET_MENU_LIST, SET_PERMISSION_LIST } from "@/store/modules/app/type";
+import { SET_ROLE, SET_MENU_LIST, SET_PERMISSION_LIST } from "@/store/modules/app/type";
 
 import globalRoutes from "@/router/globalRoutes";
 import mainRoutes from "@/router/mainRoutes";
 import NProgress from "nprogress";
+import { useStore } from "vuex";
 
 console.log('this', mainRoutes, globalRoutes)
 
-
-
+const store = useStore();
 const submenuList = [
     {
         parentId: -1,
@@ -38,7 +38,6 @@ const submenuList = [
         icon: "UserFilled",
         sort: 2,
         iframe: 0,
-        role: ['1'],
     },
     // {
     //     parentId: 100,
@@ -71,7 +70,7 @@ const submenuList = [
         menu: "",
         type: 0,
         icon: "DocumentCopy",
-        sort: 2,
+        sort: 3,
         iframe: 1,
     },
     {
@@ -84,7 +83,6 @@ const submenuList = [
         icon: "Promotion",
         sort: 1,
         iframe: 1,
-        role: ['0'],
     },
     {
         parentId: 15,
@@ -94,19 +92,76 @@ const submenuList = [
         menu: "",
         type: 1,
         icon: "ElemeFilled",
-        sort: 1,
+        sort: 2,
         iframe: 1,
+    },
+    {
+        parentId: -1,
+        id: 200,
+        name: "小程序管理", //看官网，这个名字是3-5之间的
+        url: "",
+        menu: "",
+        type: 0,
+        icon: "Iphone",
+        sort: 2,
+        iframe: 1,
+    },
+    {
+        parentId: 200,
+        id: 201,
+        name: "轮播图管理", //看官网，这个名字是3-5之间的
+        url: "system/Banners", //这个类似上面的id一个，只是初始值是从100开始的
+        menu: "",
+        type: 1,
+        icon: "Picture",
+        sort: 1,
+        iframe: 0,
+    },
+    {
+        parentId: 200,
+        id: 202,
+        name: "通知管理", //看官网，这个名字是3-5之间的
+        url: "system/Tips", //这个类似上面的id一个，只是初始值是从100开始的
+        menu: "",
+        type: 1,
+        icon: "Bell",
+        sort: 2,
+        iframe: 0,
+    },
+    {
+        parentId: 200,
+        id: 203,
+        name: "视频管理", //看官网，这个名字是3-5之间的
+        url: "system/Videos", //这个类似上面的id一个，只是初始值是从100开始的
+        menu: "",
+        type: 1,
+        icon: "VideoCamera",
+        sort: 3,
+        iframe: 0,
+    },
+    {
+        parentId: 200,
+        id: 204,
+        name: "案例管理", //看官网，这个名字是3-5之间的
+        url: "system/Cases", //这个类似上面的id一个，只是初始值是从100开始的
+        menu: "",
+        type: 1,
+        icon: "Files",
+        sort: 4,
+        iframe: 0,
     },
 ];
 
 
-const menuList = submenuList.filter((item, index) => {
-    let role = item.role;
-    let menuBool = role ? role.includes('1') : true;
-    return menuBool;
-});
+// const menuList = submenuList.filter((item, index) => {
+//     // const token = store.getters.token;
+//     let role = item.role;
+//     let menuBool = role ? role.includes('1') : true;
+//     return menuBool;
+// });
+const menuList = submenuList;
 
-console.log('menuList')
+console.log('menuList', menuList)
 
 /**
  * 判断当前路由类型, global: 全局路由, main: 主入口路由

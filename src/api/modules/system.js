@@ -33,5 +33,15 @@ module.exports = {
     addUser: {
         url: "/user/addUser",
         type: "post"
+    },
+    editUser: {
+        url: "/user/update",
+        type: "post"
+    },
+    //轮播图管理
+    bannerList: {
+        url: "/banner/page",
+        type: "post"
     }
+
 };

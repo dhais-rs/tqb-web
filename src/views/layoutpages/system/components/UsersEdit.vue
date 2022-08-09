@@ -7,58 +7,23 @@
  * @FilePath: \vue3-element-admin\src\views\layoutpages\system\components\usersEdit.vue
 -->
 <template>
-    <el-dialog
-        :title="title"
-        append-to-body
-        destroy-on-close
-        :model-value="showDialog"
-        @close="closeDialog()"
-    >
+    <el-dialog :title="title" append-to-body destroy-on-close :model-value="showDialog" @close="closeDialog()">
         <!-- <span>{{ rowData }}</span> -->
         <!-- 表单 -->
-        <el-form
-            :model="form"
-            ref="formRef"
-            :rules="rules"
-            label-width="80px"
-            :inline="false"
-        >
+        <el-form :model="form" ref="formRef" :rules="rules" label-width="80px" :inline="false">
             <el-form-item label="账号" prop="userName">
-                <el-input
-                    v-model="userName"
-                    placeholder=""
-                    clearable
-                ></el-input>
+                <el-input v-model="userName" placeholder="" clearable></el-input>
             </el-form-item>
             <el-form-item label="用户名" prop="nickName">
-                <el-input
-                    v-model="nickName"
-                    placeholder=""
-                    clearable
-                ></el-input>
+                <el-input v-model="nickName" placeholder="" clearable></el-input>
             </el-form-item>
             <el-form-item label="密码" prop="password">
-                <el-input
-                    v-model="password"
-                    show-password
-                    placeholder=""
-                    clearable
-                ></el-input>
+                <el-input v-model="password" show-password placeholder="" clearable></el-input>
             </el-form-item>
             <el-form-item label="角色" prop="userLevel">
-                <el-select
-                    style="width: 100%"
-                    v-model="userLevel"
-                    placeholder=""
-                    clearable
-                >
-                    <el-option
-                        v-for="item in roleList"
-                        :key="item.id"
-                        :label="item.name"
-                        :value="item.id"
-                        :disabled="item.state == 0"
-                    ></el-option>
+                <el-select style="width: 100%" v-model="userLevel" placeholder="" clearable>
+                    <el-option v-for="item in roleList" :key="item.id" :label="item.name" :value="item.id"
+                        :disabled="item.state == 0"></el-option>
                 </el-select>
             </el-form-item>
             <el-form-item label="状态">
@@ -151,10 +116,10 @@ const roleList = ref([
  */
 rowData.value &&
     ((nickName.value = rowData.value.nickName),
-    (userName.value = rowData.value.userName),
-    (password.value = rowData.value.password),
-    (userLevel.value = rowData.value.userLevel),
-    (state.value = rowData.value.state));
+        (userName.value = rowData.value.userName),
+        (password.value = rowData.value.password),
+        (userLevel.value = rowData.value.userLevel),
+        (state.value = rowData.value.state));
 /**
  * @description:提交
  * @param {*}
@@ -167,7 +132,7 @@ const onSubmit = () => {
             if (title.value == "添加") {
                 res = await VE_API.system.addUser(form);
             } else {
-                res = await VE_API.system.userEdit({
+                res = await VE_API.system.editUser({
                     id: rowData.value.id,
                     ...form,
                 });
@@ -184,4 +149,5 @@ const onSubmit = () => {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>
