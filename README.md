@@ -7,27 +7,12 @@
  * @FilePath: \vue3-element-admin\README.md
 -->
 
-![logo](https://i.bmp.ovh/imgs/2021/08/f828888bb4064c64.png)
-
-# vue3-element-admin
-
-**[<font color=#FF0000>✈ 国内加速链接</font>](https://gitee.com/asaasa/vue3-element-admin)**  
-**[<font color=#FF0000>✈ 效果预览</font>](https://vue3-element-admin.vercel.app/)**  
-**[<font color=#FF0000>✈ 效果预览(备用地址)</font>](http://asaasa.gitee.io/xujianhua)**  
-**走过路过的老铁,帮忙点个小 ⭐⭐⭐⭐⭐,🤝🤝🤝🤝🤝,🙏🙏🙏🙏🙏**
-
 ## 项目简介
 
 基于**vue3**和**element-plus**开发的企业后台管理模板.
 
 ---
 
-![登录页](https://i.bmp.ovh/imgs/2021/08/d9cc587a8b230dec.png)
-![404](https://i.bmp.ovh/imgs/2021/08/c8d46b772369167d.png)
-![用户管理](https://i.bmp.ovh/imgs/2021/08/6ea6b416eebca641.png)
-![菜单管理](https://i.bmp.ovh/imgs/2021/08/682c150eef16bf17.png)
-![角色管理](https://i.bmp.ovh/imgs/2021/08/7ff5cda434a2000b.png)
-![iframe页面](https://i.bmp.ovh/imgs/2021/08/a101fec1b5769d7b.png)
 
 ## 功能特性
 
